@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WeaTher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="shortcut icon" href="https://img.icons8.com/office/16/000000/sunset--v2.png" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/five" method="post">
+          <input type="text" name="city" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+        <form action="/" method="get">
+          <input type="submit" class="ghost-button" value="Get 1 day">
+        </form>
+        <%if (weather !== null){ %>
+          <div class="grid">
+            <p>
+              <%= place %>
+            </p>
+            <p class="text-muted small">
+              <%= timezone %>
+              Longitude: <%= lon %>
+              Latitude: <%= lat %>
+            </p>
+          </div>
+          <% let i = 0 %>
+          <% weath.forEach(function(wea, i) { %>
+            <% if (i > 9) { return } %>
+            <div class="card-deck">
+              <div class="card card-accent-dark mb-4" style="max-width: 20rem;">
+                <div class="card-header"><%= wea.dt_txt[i+3*i] %></div>
+                <div class="card-body text-dark">
+                  <img src="<%= wea.icon[i] %>" alt="Weather-icon">
+                  <h5 class="card-title">Temperature</h5>
+                  <p class="card-text">
+                    In Degrees: <%= wea.temp[i+3*i] %>°C
+                    In Fahrenheit: <%= wea.fahrenheit[i+3*i] %>°F
+                  </p>
+                  <h5 class="card-title">Main</h5>
+                  <p class="card-text">
+                    <%= wea.main[i+3*i] %>
+                  </p>
+                  <h5 class="card-title">Overall Description</h5>
+                  <p class="card-text">
+                    <%= wea.description[i+3*i] %>
+                  </p>
+                  <h5 class="card-title">Cloud coverage</h5>
+                  <p class="card-text">
+                    <%= wea.clouds[i+3*i] %> %
+                  </p>
+                  <h5 class="card-title">Visibility: </h5>
+                  <p class="card-text">
+                    <%= wea.visibility[i+3*i] %> meters
+                  </p>
+                  <h5 class="card-title">Humidity: </h5>
+                  <p class="card-text">
+                    <%= wea.humidity[i+3*i] %> g.m-3
+                  </p>
+                  <h5 class="card-title">Presure: </h5>
+                  <p class="card-text">
+                    <%= wea.pressure[i+3*i] %> N.m-2
+                  </p>
+                </div>
+              </div>
+              <div class="card card-accent-dark mb-4" style="max-width: 20rem;">
+                <div class="card-header"><%= wea.dt_txt[i+3*i+1] %></div>
+                <div class="card-body text-dark">
+                  <img src="<%= wea.icon[i] %>" alt="Weather-icon">
+                  <h5 class="card-title">Temperature</h5>
+                  <p class="card-text">
+                    In Degrees: <%= wea.temp[i+3*i+1] %>°C
+                    In Fahrenheit: <%= wea.fahrenheit[i+1] %>°F
+                  </p>
+                  <h5 class="card-title">Main</h5>
+                  <p class="card-text">
+                    <%= wea.main[i+3*i+1] %>
+                  </p>
+                  <h5 class="card-title">Overall Description</h5>
+                  <p class="card-text">
+                    <%= wea.description[i+3*i+1] %>
+                  </p>
+                  <h5 class="card-title">Cloud coverage</h5>
+                  <p class="card-text">
+                    <%= wea.clouds[i+3*i+1] %> %
+                  </p>
+                  <h5 class="card-title">Visibility: </h5>
+                  <p class="card-text">
+                    <%= wea.visibility[i+3*i+1] %> meters
+                  </p>
+                  <h5 class="card-title">Humidity: </h5>
+                  <p class="card-text">
+                    <%= wea.humidity[i+3*i+1] %> g.m-3
+                  </p>
+                  <h5 class="card-title">Presure: </h5>
+                  <p class="card-text">
+                    <%= wea.pressure[i+3*i+1] %> N.m-2
+                  </p>
+                </div>
+              </div>
+              <div class="card card-accent-dark mb-4" style="max-width: 20rem;">
+                <div class="card-header"><%= wea.dt_txt[i+3*i+2] %></div>
+                <div class="card-body text-dark">
+                  <img src="<%= wea.icon[i] %>" alt="Weather-icon">
+                  <h5 class="card-title">Temperature</h5>
+                  <p class="card-text">
+                    In Degrees: <%= wea.temp[i+3*i+2] %>°C
+                    In Fahrenheit: <%= wea.fahrenheit[i+2] %>°F
+                  </p>
+                  <h5 class="card-title">Main</h5>
+                  <p class="card-text">
+                    <%= wea.main[i+3*i+2] %>
+                  </p>
+                  <h5 class="card-title">Overall Description</h5>
+                  <p class="card-text">
+                    <%= wea.description[i+3*i+2] %>
+                  </p>
+                  <h5 class="card-title">Cloud coverage</h5>
+                  <p class="card-text">
+                    <%= wea.clouds[i+3*i+2] %> %
+                  </p>
+                  <h5 class="card-title">Visibility: </h5>
+                  <p class="card-text">
+                    <%= wea.visibility[i+3*i+2] %> meters
+                  </p>
+                  <h5 class="card-title">Humidity: </h5>
+                  <p class="card-text">
+                    <%= wea.humidity[i+3*i+2] %> g.m-3
+                  </p>
+                  <h5 class="card-title">Presure: </h5>
+                  <p class="card-text">
+                    <%= wea.pressure[i+3*i+2] %> N.m-2
+                  </p>
+                </div>
+              </div>
+              <div class="card card-accent-dark mb-4" style="max-width: 20rem;">
+                <div class="card-header"><%= wea.dt_txt[i+3*i+3] %></div>
+                <div class="card-body text-dark">
+                  <img src="<%= wea.icon[i] %>" alt="Weather-icon">
+                  <h5 class="card-title">Temperature</h5>
+                  <p class="card-text">
+                    In Degrees: <%= wea.temp[i+3*i+3] %>°C
+                    In Fahrenheit: <%= wea.fahrenheit[i+3*i+3] %>°F
+                  </p>
+                  <h5 class="card-title">Main</h5>
+                  <p class="card-text">
+                    <%= wea.main[i+3*i+3] %>
+                  </p>
+                  <h5 class="card-title">Overall Description</h5>
+                  <p class="card-text">
+                    <%= wea.description[i+3*i+3] %>
+                  </p>
+                  <h5 class="card-title">Cloud coverage</h5>
+                  <p class="card-text">
+                    <%= wea.clouds[i+3*i+3] %> %
+                  </p>
+                  <h5 class="card-title">Visibility: </h5>
+                  <p class="card-text">
+                    <%= wea.visibility[i+3*i+3] %> meters
+                  </p>
+                  <h5 class="card-title">Humidity: </h5>
+                  <p class="card-text">
+                    <%= wea.humidity[i+3*i+3] %> g.m-3
+                  </p>
+                  <h5 class="card-title">Presure: </h5>
+                  <p class="card-text">
+                    <%= wea.pressure[i+3*i+3] %> N.m-2
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } %>
+        <% if(error !== null){ %>
+          <p>
+            <%= error %>
+          </p>
+        <% } %>
+      </fieldset>
+    </div>
+  </body>
+</html>
