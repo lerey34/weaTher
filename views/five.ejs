@@ -34,13 +34,15 @@
           <% weath.forEach(function(wea, i) { %>
             <% if (i > 9) { return } %>
             <div class="card-deck">
-              <div class="card card-accent-dark mb-4" style="max-width: 20rem;">
+              <div class="card card-accent-dark mb-4" style="max-width: 21rem;">
                 <div class="card-header"><%= wea.dt_txt[i+3*i] %></div>
                 <div class="card-body text-dark">
                   <img src="<%= wea.icon[i] %>" alt="Weather-icon">
                   <h5 class="card-title">Temperature</h5>
                   <p class="card-text">
                     In Degrees: <%= wea.temp[i+3*i] %>°C
+                  </p>
+                  <p class="card-text">
                     In Fahrenheit: <%= wea.fahrenheit[i+3*i] %>°F
                   </p>
                   <h5 class="card-title">Main</h5>
@@ -76,6 +78,8 @@
                   <h5 class="card-title">Temperature</h5>
                   <p class="card-text">
                     In Degrees: <%= wea.temp[i+3*i+1] %>°C
+                  </p>
+                  <p class="card-text">
                     In Fahrenheit: <%= wea.fahrenheit[i+1] %>°F
                   </p>
                   <h5 class="card-title">Main</h5>
@@ -111,6 +115,8 @@
                   <h5 class="card-title">Temperature</h5>
                   <p class="card-text">
                     In Degrees: <%= wea.temp[i+3*i+2] %>°C
+                  </p>
+                  <p class="card-text">
                     In Fahrenheit: <%= wea.fahrenheit[i+2] %>°F
                   </p>
                   <h5 class="card-title">Main</h5>
@@ -146,6 +152,8 @@
                   <h5 class="card-title">Temperature</h5>
                   <p class="card-text">
                     In Degrees: <%= wea.temp[i+3*i+3] %>°C
+                  </p>
+                  <p class="card-text">
                     In Fahrenheit: <%= wea.fahrenheit[i+3*i+3] %>°F
                   </p>
                   <h5 class="card-title">Main</h5>
