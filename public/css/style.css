@@ -4,6 +4,11 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+h1 {
+  display: block;
+  padding: 20px;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
