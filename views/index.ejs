@@ -1,121 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>WeaTher</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="shortcut icon" href="https://img.icons8.com/office/16/000000/sunset--v2.png" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5487533754755983"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/office/16/000000/sunset--v2.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
       <h1>1 day weather</h1>
       <fieldset>
         <form action="/" method="post">
-          <input type="text" name="city" class="ghost-input" placeholder="Enter a City" required>
-          <input type="submit" class="ghost-button" value="Get Weather">
+          <input
+            type="text"
+            name="city"
+            class="ghost-input"
+            placeholder="Enter a City"
+            required
+          />
+          <input type="submit" class="ghost-button" value="Get Weather" />
         </form>
         <form action="five" method="get">
-          <input type="submit" class="ghost-button" value="Get 5 day forecast">
+          <input
+            type="submit"
+            class="ghost-button"
+            value="Get 5 day forecast"
+          />
         </form>
         <%if (weather !== null){ %>
-          <div class="grid">
-            <p>
-              <%= place %>
-            </p>
-            <p class="text-muted small">
-              <%= timezone %>
-              Longitude: <%= lon %>
-              Latitude: <%= lat %>
-            </p>
+        <div class="grid">
+          <p><%= place %></p>
+          <p class="text-muted small">
+            <%= timezone %> Longitude: <%= lon %> Latitude: <%= lat %>
+          </p>
+        </div>
+        <div class="card-deck">
+          <div class="card card-accent-dark mb-4" style="max-width: 21rem">
+            <div class="card-header">Summary</div>
+            <div class="card-body text-dark">
+              <img src="<%= icon %>" alt="Weather-icon" />
+              <h5 class="card-title">Temperature</h5>
+              <p class="card-text">In Degrees: <%= temp %> °C</p>
+              <p class="card-text">In Fahrenheit: <%= fahrenheit %> °F</p>
+              <h5 class="card-title">Main</h5>
+              <p class="card-text"><%= main %></p>
+            </div>
           </div>
           <div class="card-deck">
-            <div class="card card-accent-dark mb-4" style="max-width: 21rem;">
-              <div class="card-header">Summary</div>
+            <div
+              class="card card-acTomorrowcent-dark mb-4"
+              style="max-width: 18rem"
+            >
+              <div class="card-header">Description</div>
               <div class="card-body text-dark">
-                <img src="<%= icon %>" alt="Weather-icon">
-                <h5 class="card-title">Temperature</h5>
-                <p class="card-text">
-                  In Degrees: <%= temp %> °C
-                </p>
-                <p class="card-text">
-                  In Fahrenheit: <%= fahrenheit %> °F
-                </p>
-                <h5 class="card-title">Main</h5>
-                <p class="card-text">
-                  <%= main %>
-                </p>
+                <h5 class="card-title">Overall Description:</h5>
+                <p class="card-text"><%= description %></p>
+                <h5 class="card-title">Cloud coverage:</h5>
+                <p class="card-text"><%= clouds %> %</p>
+                <h5 class="card-title">Visibility:</h5>
+                <p class="card-text"><%= visibility %> meters</p>
               </div>
             </div>
             <div class="card-deck">
-              <div class="card card-acTomorrowcent-dark mb-4" style="max-width: 18rem;">
-                <div class="card-header">Description</div>
+              <div class="card card-accent-dark mb-4" style="max-width: 18rem">
+                <div class="card-header">Other info</div>
                 <div class="card-body text-dark">
-                  <h5 class="card-title">Overall Description: </h5>
-                  <p class="card-text">
-                    <%= description %>
-                  </p>
-                  <h5 class="card-title">Cloud coverage: </h5>
-                  <p class="card-text">
-                    <%= clouds %> %
-                  </p>
-                  <h5 class="card-title">Visibility: </h5>
-                  <p class="card-text">
-                    <%= visibility %> meters
-                  </p>
+                  <h5 class="card-title">Humidity:</h5>
+                  <p class="card-text"><%= humidity %> g.m-3</p>
+                  <h5 class="card-title">Presure:</h5>
+                  <p class="card-text"><%= pressure %> N.m-2</p>
                 </div>
               </div>
               <div class="card-deck">
-                <div class="card card-accent-dark mb-4" style="max-width: 18rem;">
-                  <div class="card-header">Other info</div>
+                <div
+                  class="card card-accent-dark mb-4"
+                  style="max-width: 18rem"
+                >
+                  <div class="card-header">Map</div>
                   <div class="card-body text-dark">
-                    <h5 class="card-title">Humidity: </h5>
-                    <p class="card-text">
-                      <%= humidity %> g.m-3
-                    </p>
-                    <h5 class="card-title">Presure: </h5>
-                    <p class="card-text">
-                      <%= pressure %> N.m-2
-                    </p>
-                  </div>
-                </div>
-                <div class="card-deck">
-                  <div class="card card-accent-dark mb-4" style="max-width: 18rem;">
-                    <div class="card-header">Map</div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Precipitation: </h5>
-                      <form class="card-text" action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=precipitation&lat=<%= lat %>&lon=<%= lon %>&zoom=7" method="post">
-                        <input type="submit" class="ghost-button-map" value="Go map">
-                      </form>
-                      <h5 class="card-title">Temperature: </h5>
-                      <form class="card-text" action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=<%= lat %>&lon=<%= lon %>&zoom=7" method="post">
-                        <input type="submit" class="ghost-button-map" value="Go map">
-                      </form>
-                      <h5 class="card-title">Pressure: </h5>
-                      <form class="card-text" action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=pressure&lat=<%= lat %>&lon=<%= lon %>&zoom=7" method="post">
-                        <input type="submit" class="ghost-button-map" value="Go map">
-                      </form>
-                      <h5 class="card-title">Wind speed: </h5>
-                      <form class="card-text" action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=windspeed&lat=<%= lat %>&lon=<%= lon %>&zoom=7" method="post">
-                        <input type="submit" class="ghost-button-map" value="Go map">
-                      </form>
-                      <h5 class="card-title">Clouds: </h5>
-                      <form class="card-text" action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=<%= lat %>&lon=<%= lon %>&zoom=7" method="post">
-                        <input type="submit" class="ghost-button-map" value="Go map">
-                      </form>
-                    </div>
+                    <h5 class="card-title">Precipitation:</h5>
+                    <form
+                      class="card-text"
+                      action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=precipitation&lat=<%= lat %>&lon=<%= lon %>&zoom=7"
+                      method="post"
+                    >
+                      <input
+                        type="submit"
+                        class="ghost-button-map"
+                        value="Go map"
+                      />
+                    </form>
+                    <h5 class="card-title">Temperature:</h5>
+                    <form
+                      class="card-text"
+                      action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=<%= lat %>&lon=<%= lon %>&zoom=7"
+                      method="post"
+                    >
+                      <input
+                        type="submit"
+                        class="ghost-button-map"
+                        value="Go map"
+                      />
+                    </form>
+                    <h5 class="card-title">Pressure:</h5>
+                    <form
+                      class="card-text"
+                      action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=pressure&lat=<%= lat %>&lon=<%= lon %>&zoom=7"
+                      method="post"
+                    >
+                      <input
+                        type="submit"
+                        class="ghost-button-map"
+                        value="Go map"
+                      />
+                    </form>
+                    <h5 class="card-title">Wind speed:</h5>
+                    <form
+                      class="card-text"
+                      action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=windspeed&lat=<%= lat %>&lon=<%= lon %>&zoom=7"
+                      method="post"
+                    >
+                      <input
+                        type="submit"
+                        class="ghost-button-map"
+                        value="Go map"
+                      />
+                    </form>
+                    <h5 class="card-title">Clouds:</h5>
+                    <form
+                      class="card-text"
+                      action="https://openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=<%= lat %>&lon=<%= lon %>&zoom=7"
+                      method="post"
+                    >
+                      <input
+                        type="submit"
+                        class="ghost-button-map"
+                        value="Go map"
+                      />
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <% } %>
-        <% if(error !== null){ %>
-          <p>
-            <%= error %>
-          </p>
+        </div>
+        <% } %> <% if(error !== null){ %>
+        <p><%= error %></p>
         <% } %>
       </fieldset>
     </div>
